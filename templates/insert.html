@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Marks</title>
+  </head>
+  <body>
+    <h1>Insert Data</h1>
+    <h1>Student Marks</h1>
+    <form method="post" action="{{ url_for('insert') }}">
+
+        <label for="student_name">Student Name:</label>
+        <input type="text" id="student_name" name="student_name" ><br><br>
+
+        <label for="subject_name1">Subject 1 Name:</label>
+        <input type="text" id="subject_name1" name="subject_name1" placeholder="Subject 1">
+        <label for="marks1">Marks:</label>
+        <input type="text" id="marks1" name="marks1" placeholder="Marks"><br>
+
+        <label for="subject_name2">Subject 2 Name:</label>
+        <input type="text" id="subject_name2" name="subject_name2" placeholder="Subject 2">
+        <label for="marks2">Marks:</label>
+        <input type="text" id="marks2" name="marks2" placeholder="Marks"><br>
+
+        <label for="subject_name3">Subject 3 Name:</label>
+        <input type="text" id="subject_name3" name="subject_name3" placeholder="Subject 3">
+        <label for="marks3">Marks:</label>
+        <input type="text" id="marks3" name="marks3" placeholder="Marks"><br>
+        <!-- Add more subject input fields as needed -->
+        <br>
+        <input type="submit" value="Submit">
+  </body>
+</html>
