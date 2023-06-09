@@ -127,7 +127,7 @@ def createApp():
         if request.method == 'POST':
             # Retrieve the student name from the form
             student_name = request.form['student_name']
-
+#want to change commite
             # Query the MySQL database to search for the student
             search_query = """
                 SELECT s.student_name, sub.subject_name, m.marks
