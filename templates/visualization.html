@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Marks Visualization</title>
+  </head>
+  <body>
+    <h1>Student Marks Visualization</h1>
+    {% for chart in pie_charts %}
+    <div>
+      <img src="data:image/png;base64,{{ chart }}" alt="Pie Chart" />
+    </div>
+    {% endfor %}
+  </body>
+</html>
