@@ -195,6 +195,42 @@ def createApp():
             plt.clf()
 
         return render_template('visualization.html', pie_charts=pie_charts)
+    
+    @app.route('/visualization1')
+    def visualization1():
+        # Query the MySQL database to get the data for visualization
+        query = """
+            SELECT subject_name, AVG(marks) as average_marks
+            FROM subjects s
+            INNER JOIN marks m ON s.id = m.subject_id
+            GROUP BY subject_name
+        """
+        cursor.execute(query)
+        data = cursor.fetchall()
+
+        # Extract subject names and average marks from the data
+        subjects = [row[0] for row in data]
+        average_marks = [row[1] for row in data]
+
+        # Create a bar chart
+        plt.bar(subjects, average_marks)
+        plt.xlabel('Subject')
+        plt.ylabel('Average Marks')
+        plt.title('Average Marks by Subject')
+
+        # Save the plot to a buffer
+        buffer = io.BytesIO()
+        plt.savefig(buffer, format='png')
+        buffer.seek(0)
+
+        # Encode the buffer image to base64
+        image_base64 = base64.b64encode(buffer.read()).decode()
+
+        # Generate the HTML to display the image
+        image_html = f'<img src="data:image/png;base64,{image_base64}" alt="Visualization">'
+
+        return render_template('visualization1.html', image_html=image_html)
+
     return app
 
 if __name__ == '__main__':
